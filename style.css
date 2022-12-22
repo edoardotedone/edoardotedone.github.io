@@ -130,7 +130,9 @@ grid-template-rows: max-content 0.1fr 0.1fr 1fr;
 .v-take {
   padding: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;    
+  grid-template-columns: 0.5fr 0.5fr 1fr; 
+  column-gap: 0px; 
+  margin: 0;    
 }
 
 .v-legami {
@@ -148,18 +150,6 @@ grid-template-rows: max-content 0.1fr 0.1fr 1fr;
   border-bottom: 1px solid #89B6CC;
   padding: 20px 20px;  
 }
-
-.h-1-c {
-  border-bottom: 1px solid #89B6CC;
-  padding: 20px 20px;  
-}
-
-@media (max-width:500px) {
-  .h-1-c {    
-    width: 75%;      
-  }
-}
-
 
 .h-2 {
   border-bottom: 1px solid #89B6CC;
@@ -179,7 +169,7 @@ grid-template-rows: max-content 0.1fr 0.1fr 1fr;
 
 .h-things-1 {
   border-bottom: 1px solid #89B6CC;
-  padding: 20px 20px;
+  padding: 20px 20px;  
 }
 
 @media (max-width:500px) {
@@ -202,13 +192,14 @@ grid-template-rows: max-content 0.1fr 0.1fr 1fr;
 
 .h-take {
   display: grid;
-  grid-template-rows: 0.1fr 0.1fr 0.1fr 0.1fr 1fr; 
-  text-align: center; 
+  grid-template-rows: 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr;
+  row-gap: 0px;
+  text-align: left;
 }
 
 .h-take-micro {
-  padding: 20px;
-  
+  padding: 20px 20px;
+  text-decoration: underline;
 }
 
 .h-footer {  
@@ -233,7 +224,7 @@ grid-template-rows: max-content 0.1fr 0.1fr 1fr;
 }
 
 .hover-index:hover {
-  color: #89B6CC;
+  color: #89B6CC;  
 }
 
 .close { 
@@ -262,7 +253,7 @@ grid-template-rows: max-content 0.1fr 0.1fr 1fr;
 
 @media (max-width:500px) {
   .image {    
-    width: 50vh;      
+    width: 47vh;      
   }
 }
 
@@ -294,9 +285,14 @@ sup {
   color:#89B6CC;
 }
 
-@media (max-width:500px) {
-  ol {    
-    padding: 15px;      
-  }
+ol {
+  padding: 0px 0px 0px 40px;
+  margin: 0;
+  width: 100% !important;
+}
+
+li {
+  padding-right: 40px;
+  padding-left: 20px;
 }
 /* --------------------------------------------------------------------------- */
