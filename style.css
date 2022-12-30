@@ -6,18 +6,18 @@ html {
 }
 
 body {
-  background-color:#182A33;
+  background-color:#BF996B;
   padding: 0;
   margin: 0;
   min-height: 100%;
   font-family: Space Grotesk; 
   font-size: 24px;
-  color: whitesmoke;
+  color: black;
 }
 
 a {
   text-decoration: none!important;
-  color: whitesmoke;
+  color: black;
 }
 
 p {
@@ -72,7 +72,7 @@ p {
 /*Vertical column*/
 
 .v-index-1 {
-border-right: 1px solid #89B6CC;
+border-right: 1px solid black;
 display: grid;
 grid-template-rows: max-content 0.1fr 0.1fr 1fr; 
 }
@@ -89,7 +89,7 @@ grid-template-rows: max-content 0.1fr 0.1fr 1fr;
   }
 
 .v-about-1 {  
-  border-right: 1px solid #89B6CC;
+  border-right: 1px solid black;
   display: grid;
   grid-template-rows: max-content 1fr;  
   }
@@ -101,7 +101,7 @@ grid-template-rows: max-content 0.1fr 0.1fr 1fr;
   }
 
 .v-about-2 {    
-  border-right: 1px solid #89B6CC;   
+  border-right: 1px solid black;   
   }
 
 .v-about-3 {
@@ -111,13 +111,13 @@ grid-template-rows: max-content 0.1fr 0.1fr 1fr;
 }
 
 .v-things-1 {
-  border-right: 1px solid #89B6CC;
+  border-right: 1px solid black;
   display: grid;
   grid-template-rows: 22.5% 37.5% 7.5% 15% 1fr;
 }
 
 .v-things-2 {
-  border-right: 1px solid #89B6CC;
+  border-right: 1px solid black;
   display: grid;
   grid-template-rows: repeat(11, 7.5%) 1fr;  
 }
@@ -130,9 +130,9 @@ grid-template-rows: max-content 0.1fr 0.1fr 1fr;
 .v-take {
   padding: 0;
   display: grid;
-  grid-template-columns: 0.5fr 0.5fr 1fr; 
+  grid-template-columns: 1fr 1fr 1fr; 
   column-gap: 0px; 
-  margin: 0;    
+  margin: 0;      
 }
 
 .v-legami {
@@ -147,12 +147,12 @@ grid-template-rows: max-content 0.1fr 0.1fr 1fr;
 /*Rows inside columns*/
 
 .h-1 {
-  border-bottom: 1px solid #89B6CC;
+  border-bottom: 1px solid black;
   padding: 20px 20px;  
 }
 
 .h-2 {
-  border-bottom: 1px solid #89B6CC;
+  border-bottom: 1px solid black;
   padding: 20px 20px;    
 }
 
@@ -162,13 +162,13 @@ grid-template-rows: max-content 0.1fr 0.1fr 1fr;
 }
 
 .h-3 {
-  border-bottom: 1px solid #89B6CC;
+  border-bottom: 1px solid black;
   padding: 20px 20px;
   transition: color 0.15s;
 }
 
 .h-things-1 {
-  border-bottom: 1px solid #89B6CC;
+  border-bottom: 1px solid black;
   padding: 20px 20px;  
 }
 
@@ -224,7 +224,7 @@ grid-template-rows: max-content 0.1fr 0.1fr 1fr;
 }
 
 .hover-index:hover {
-  color: #89B6CC;  
+  color: white;  
 }
 
 .close { 
@@ -232,7 +232,7 @@ grid-template-rows: max-content 0.1fr 0.1fr 1fr;
   bottom: 20px;
   right: 20px;   
   font-size: 40px;
-  color: #89B6CC;
+  color: white;
   transition: color 0.15s;
 }
 
@@ -282,17 +282,24 @@ h1 {
 }
 
 sup {
-  color:#89B6CC;
+  color:white;
 }
 
 ol {
-  padding: 0px 0px 0px 40px;
-  margin: 0;
-  width: 100% !important;
+  padding-left: 40px; 
+  margin: 0;  
+  max-width: 100vh;
+}
+
+@media (max-width:500px) {
+  ol {    
+    padding-left: 10px;      
+  }
 }
 
 li {
-  padding-right: 40px;
-  padding-left: 20px;
+  padding: 0;  
+  margin: 0;
+  max-width: 100vh;
 }
 /* --------------------------------------------------------------------------- */
