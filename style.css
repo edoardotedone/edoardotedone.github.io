@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  background-color:#BF996B;
+  background-color: #b5b5b5;
   padding: 0;
   margin: 0;
   min-height: 100%;
@@ -169,7 +169,7 @@ grid-template-rows: max-content 0.1fr 0.1fr 1fr;
 
 .h-things-1 {
   border-bottom: 1px solid black;
-  padding: 20px 20px;  
+  padding: 20px 20px;    
 }
 
 @media (max-width:500px) {
@@ -232,12 +232,12 @@ grid-template-rows: max-content 0.1fr 0.1fr 1fr;
   bottom: 20px;
   right: 20px;   
   font-size: 40px;
-  color: white;
+  color: black;
   transition: color 0.15s;
 }
 
 .close:hover {
-  color: black;
+  color: white;
 }
 
 @media (max-width:500px) {
@@ -305,7 +305,7 @@ li {
 
 .hovertext {
   position: relative;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid black;
   cursor: pointer;  
 }
 
@@ -344,4 +344,9 @@ li {
   opacity: 1;
   visibility: visible; 
 }
+
+mark {
+  padding: 0px 5px;
+}
+
 /* --------------------------------------------------------------------------- */
