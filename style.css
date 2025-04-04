@@ -1,352 +1,764 @@
+/* ============================================= */
+/* == Global Styles & Font == */
+/* ============================================= */
 
-/*General*/
-
-html {    
-  height: 100vh;
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* Apply common ligatures and contextual alternates */
+}
+@supports (font-variation-settings: normal) {
+  :root { font-family: InterVariable, sans-serif; } /* Use variable font if supported */
 }
 
 body {
-  background-color: #b5b5b5;
-  padding: 0;
-  margin: 0;
-  min-height: 100%;
-  font-family: Space Grotesk; 
-  font-size: 20px;
-  color: black;
-}
-
-a {
-  text-decoration: none!important;
-  color: black;
-}
-
-p {
+  background-color: #0f0f0f;
+  color: #ffffff;
   margin: 0;
   padding: 0;
+  line-height: 20px;
+  overflow-x: hidden; /* Prevent horizontal scroll caused by full-width elements */
 }
 
-/* --------------------------------------------------------------------------- */
+/* Default heading styles */
+h1, h2, h3 { font-weight: bold; }
+h1 { font-size: 5em; }
+h2 { font-size: 2em; animation-fill-mode: forwards; }
+.h2-wrapper { margin-bottom: 20px; }
+.h2-wrapper .reveal-content { font-size: 2em; font-weight: bold; line-height: 1.2; animation-delay: 1s; }
+#work .h2-wrapper .reveal-content { display: flex; justify-content: space-between; align-items: baseline; animation-delay: 1s; }
+#work .h2-wrapper .reveal-content span { font-size: 1em; font-weight: bold; color: #ffffff; }
+#about .h2-wrapper .reveal-content { animation-delay: 1s; } /* Delay for ABOUT H2 */
+#about .h2-wrapper .reveal-content span { font-weight: bold; }
+#contact .h2-wrapper .reveal-content { animation-delay: 1s; } /* Delay for CONTACT H2 */
+h3 { font-size: 1.2em; }
 
-/*Macro column grid*/
+/* Default paragraph styles */
+p { color: #ffffff; text-decoration: none; font-size: 1.1em; margin-top: 5px; margin-bottom: 5px; }
 
-.grid-index {
+/* Default link styles */
+a { color: #ffffff; text-decoration: none; font-size: 1em; }
+
+/* ============================================= */
+/* == Layout Helpers == */
+/* ============================================= */
+
+/* Consistent content width and padding */
+.header-content,
+.subheading-content,
+#work,
+.footer-content,
+#about, /* Added #about here for consistency */
+#contact /* Added #contact here for consistency */
+{
+  max-width: 1920px; /* Max width for content */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px; /* Side padding */
+  padding-right: 20px; /* Side padding */
+  /* padding-top removed from here as it varies */
+}
+
+/* Specific top padding for container elements if needed */
+.header-content, .footer-content { padding-top: 10px; }
+
+
+/* Divider style */
+.section-divider {
+  border: none;
+  height: 1px;
+  background-color: #333333; /* Dark grey line */
+  margin-left: 20px; /* Match content padding */
+  margin-right: 20px; /* Match content padding */
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* ============================================= */
+/* == Header == */
+/* ============================================= */
+
+header {
+  position: fixed; /* Stick header to top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0f0f0f; /* Match body background */
+  z-index: 1000; /* Ensure header is above other content */
+  padding-top: 10px; /* Use header padding instead of header-content */
+  padding-bottom: 20px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-name {
+  font-weight: normal; /* Specific style for name link */
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.header-name:hover {
+  opacity: 0.5; /* Set desired opacity on hover */
+}
+
+header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px; /* Space between nav items */
+}
+
+header nav ul li a.nav-link-animated {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  line-height: 2;
+  vertical-align: top;
+  padding: 0;
+}
+
+/* Common style for both text spans inside the link */
+header nav ul li a.nav-link-animated span {
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  transform: translateY(0%);
+}
+
+/* Position the clone text directly below the original */
+header nav ul li a.nav-link-animated span.nav-text-clone {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(105%);
+}
+
+/* HOVER EFFECT: Animate text upwards */
+header nav ul li a.nav-link-animated:hover span.nav-text-original {
+  transform: translateY(-105%);
+}
+
+header nav ul li a.nav-link-animated:hover span.nav-text-clone {
+  transform: translateY(0%); /* Move clone text up into view */
+}
+
+header nav a:hover {
+  text-decoration: none; /* Ensure no underline on hover */
+}
+
+/* ============================================= */
+/* == Main Content Area == */
+/* ============================================= */
+
+main {
+  padding-top: 60px; /* Space below fixed header */
+  padding-bottom: 10px;
+}
+
+section { /* Default section spacing */
+ padding-top: 20px;
+ padding-bottom: 30px;
+}
+
+/* ============================================= */
+/* == Hero Section == */
+/* ============================================= */
+
+/* Style the H1 wrapper */
+#hero .hero-h1-wrapper {
+  overflow: hidden; /* Hides the part of H1 outside the wrapper */
+  display: block;
+  margin-left: 20px; /* Apply left margin here */
+  margin-bottom: 90px; /* Apply bottom margin here */
+  margin-top: 40px;
+}
+
+/* Style the H1 *inside* the wrapper - Keep base styles if needed, animation handled globally */
+#hero .hero-h1-wrapper .reveal-content { /* Target the H1 via its class */
+  font-size: 5em; /* Re-apply font size */
+  line-height: 1.1;
+  margin: 0; /* Ensure no default margins */
+  padding: 0; /* Ensure no default padding */
+  /* Animation properties handled by general .reveal-content rule */
+  animation-delay: 0.3s; /* Specific animation delay for H1 */
+}
+
+/* Removed the specific H1 animation block as it's now handled by the general rules below */
+
+
+/* ============================================= */
+/* == Subheading Section == */
+/* ============================================= */
+
+.subheading-content {
+  display: flex;
+  align-items: baseline; /* Align text nicely */
+  padding-top: 0;
+  gap: 250px; /* Large gap between "HELLO" and the text */
+  /* Max-width and padding handled by shared rule */
+}
+
+.subheading-hello {
+  font-weight: normal;
+  color: #aaaaaa; /* Grey color for "HELLO" */
+}
+
+.subheading-text {
+ font-size: 1.1em;
+ font-weight: normal;
+ margin: 0;
+}
+
+.subheading-wrapper {
+  padding-top: 0;
+}
+
+.subheading-wrapper .reveal-content { /* Targeting .subheading-content */
+  display: flex;
+  align-items: baseline;
+  gap: 250px;
+  animation-delay: 0.35s; /* Slightly after H1 */
+  margin-left: 20px;
+}
+
+.subheading-content p.subheading-text {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* ============================================= */
+/* == Work Section (Portfolio Grid) == */
+/* ============================================= */
+
+/* Removed redundant #work h2 rule - styles are on .reveal-content */
+/* Removed redundant #work h2 span rule - styles are on .reveal-content span */
+
+.project-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;   
-  height: 100vh; 
+  grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+  gap: 20px; /* Space between grid items */
 }
 
-@media (max-width:500px) {
-  .grid-index {
-    grid-template-columns: 1fr;
-    font-size: 14px;    
-  }
+.project-unit { /* Wrapper for each project (image + text below) */
+  display: flex;
+  flex-direction: column; /* Stack image link and text vertically */
+  gap: 10px; /* Space between image and text */
 }
 
-.grid-about {
-  display: grid;
-  grid-template-columns: 1fr 1fr;   
-  height: 100vh;   
-  }
-
-@media (max-width:500px) {
-  .grid-about {
-    grid-template-columns: 1fr;
-    font-size: 14px;       
-  }
+.project-item { /* The link wrapping the image/placeholder and hover button */
+  position: relative; /* For absolute positioning of the button */
+  display: block; /* Make it block-level */
+  aspect-ratio: 1 / 0.75; /* Maintain aspect ratio */
+  overflow: hidden; /* Hide overflowing button parts if needed */
 }
 
-.grid-things {
-  display: grid;
-  grid-template-columns: 0.25fr 1fr 0.25fr;
-  height: 100vh;
+.project-image-placeholder { /* The grey box */
+  height: 100%;
+  width: 100%;
+  display: block; /* Ensure it fills the container */
+  background-color: #b5b5b5; /* The grey color */
 }
 
-@media (max-width:500px) {
-  .grid-things {    
-    font-size: 14px;      
-  }
+.view-project-btn { /* The hover button */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the button */
+  z-index: 10; /* Ensure button is above placeholder */
+  background-color: rgba(240, 240, 240, 0.100); /* Semi-transparent white */
+  color: #ffffff; /* White text */
+  padding: 10px 20px; /* Button padding */
+  border-radius: 50px; /* Pill shape */
+  font-size: 1em; /* Button text size */
+  font-weight: normal;
+  text-transform: uppercase; /* Uppercase text */
+  white-space: nowrap; /* Prevent text wrapping */
+  display: inline-flex; /* Align icon and text */
+  align-items: center; /* Vertical alignment */
+  gap: 8px; /* Space between icon and text */
+  cursor: pointer; /* Indicate interactivity */
+  opacity: 0; /* Hidden by default */
+  visibility: hidden; /* Hidden by default */
+  transition: opacity 0.6s ease, visibility 0.6s ease; /* Smooth fade */
 }
 
-/* --------------------------------------------------------------------------- */
-
-/*Vertical column*/
-
-.v-index-1 {
-border-right: 1px solid black;
-display: grid;
-grid-template-rows: max-content 0.1fr 0.1fr 1fr; 
+.view-project-btn .eye-icon { /* Styling for the SVG eye */
+  width: 1.2em;
+  height: 1.2em;
+  display: inline-block; /* Ensures proper alignment */
 }
 
-@media (max-width:500px) {
-  .v-index-1 {    
-    border-right: 0;      
-  }
+.project-item:hover .view-project-btn { /* Show button on hover */
+  opacity: 1;
+  visibility: visible;
 }
 
-.v-index-2 {  
-  display: grid;
-  grid-template-rows: 0.1fr 0.1fr 1fr;  
-  }
+.project-text { /* Text block below the image */
+  display: flex;
+  justify-content: space-between; /* Title left, type right */
+  align-items: baseline;
+  color: #ffffff;
+}
 
-.v-about-1 {  
-  border-right: 1px solid black;
-  display: grid;
-  grid-template-rows: max-content 1fr;  
-  }
+.project-text h3 { /* Project Title */
+  margin: 0;
+  font-weight: normal;
+  color: #ffffff;
+  font-size: 1em;
+}
 
-  @media (max-width:500px) {
-    .v-about-1 {    
-      border-right: 0;      
-    }
-  }
-
-.v-about-2 {    
-  border-right: 1px solid black;   
-  }
-
-.v-about-3 {
-  padding: 20px 20px; 
+.project-text span { /* Project Type (FOOH, Motion Design, etc.) */
+  font-size: 1em;
+  color: #b0b0b0; /* Lighter grey color */
   text-align: right;
-  font-size: 30px;    
 }
 
-.v-things-1 {
-  border-right: 1px solid black;
-  display: grid;
-  grid-template-rows: 22.5% 45% 7.5% 1fr;
+/* ============================================= */
+/* == About Section == */
+/* ============================================= */
+
+#about {
+  /* padding/max-width removed - applied to inner wrappers */
+  padding-top: 100px; /* Specific top padding for About */
+  /* padding-bottom will depend on the full-width section */
 }
 
-.v-things-2 {
-  border-right: 1px solid black;
-  display: grid;
-  grid-template-rows: repeat(11, 7.5%) 1fr;  
+/* Styles for the constrained intro part */
+.about-content-constrained {
+  /* Inherits max-width and padding from shared rule */
+  margin-bottom: 40px; /* Space before the full-width section */
 }
 
-.v-things-3 {  
-  display: grid;
-  grid-template-rows: repeat(11, 7.5%) 1fr;  
+.about-intro {
+  /* Removed margin-bottom here, added to parent container */
+  max-width: 40%; /* Limit width of intro text */
+  font-size: 1.1em;
 }
 
-.v-take {
+/* Styles for the full-width experience section */
+.about-experience-fullwidth {
+  width: 100%; /* Ensure it takes full viewport width */
+  /* Add background color or other full-bleed styles if desired */
+  /* background-color: #1a1a1a; */
+  padding-top: 40px; /* Space inside the full-width section */
+  padding-bottom: 40px; /* Space inside the full-width section */
+}
+
+.about-column { /* Shared styles for columns if more are added */
+  flex: 1; /* Allow columns to share space */
+}
+
+.about-column h3 {
+  margin-bottom: 40px; font-weight: normal; font-size: 1.1em; color: #a2a2a2;
+}
+
+.about-column ul { list-style: none; padding: 0; margin: 0; }
+.about-column li { margin-bottom: 15px; }
+
+/* Experience list specific styling */
+.experience-list li {
+  display: flex; justify-content: space-between;
+  border-bottom: 1px solid #333333;
+  padding-bottom: 20px; margin-bottom: 8px; font-size: 1.2em;
+}
+.experience-list .role { flex-basis: 40%; }
+.experience-list .place { flex-basis: 40%; text-align: left; color: #aaaaaa; }
+.experience-list .date { flex-basis: 20%; text-align: left; color: #aaaaaa; }
+
+/* ============================================= */
+/* == Contact Section == */
+/* ============================================= */
+
+#contact {
+  /* Max-width and padding handled by shared rule */
+  padding-top: 120px; /* Specific top padding */
+  padding-bottom: 60px; /* Specific bottom padding */
+  /* Text styled by global 'p' rule */
+}
+
+#contact .cta-button { /* Email link button */
+  display: inline-block;
+  background-color: #202020;
+  color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 40px;
+  font-weight: normal;
+  margin-top: 40px;
+  font-size: 1em;
+  transition: opacity 0.3s ease-in;
+}
+
+#contact .cta-button:hover {  
+  opacity: 0.5;
+}
+
+/* ============================================= */
+/* == Footer == */
+/* ============================================= */
+
+footer {
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+
+.footer-content {
+     display: flex;
+     justify-content: space-between; /* Name left, links right */
+     align-items: center; /* Vertically align items */
+     /* Max-width and padding handled by shared rule */
+ }
+
+ footer .social-links {
+    margin-top: 0; /* Reset margin */
+    display: flex;
+    gap: 30px; /* Space between social links */
+ }
+
+ .footer-content a { /* Style links in footer */
+  color: #b5b5b5; /* Grey color */
+  font-size: 1em;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+ }
+
+ .footer-content a:hover {
+  opacity: 0.5;
+}
+
+footer .social-links {
+  margin-top: 0; /* Reset margin */
+  display: flex;
+  /* gap: 30px; /* Desktop gap - overridden on mobile */
+}
+
+/* ============================================= */
+/* == Media Queries (Responsive Design) == */
+/* ============================================= */
+
+@media (max-width: 768px) {
+  h1 { font-size: 2.5em; }
+  h2 { font-size: 1.8em; }
+  .project-grid { grid-template-columns: 1fr; }
+
+  /* Adjust About section for mobile */
+  .about-content-constrained { margin-bottom: 40px; } /* Reduce space */
+  .about-intro { max-width: 100%; }
+  .about-experience-fullwidth { padding-top: 20px; padding-bottom: 20px; } /* Reduce padding */
+
+   header nav ul {
+      justify-content: center; /* Center nav items */
+      gap: 30px; /* INCREASED space between nav items */
+   }
+   
+   .subheading-wrapper .reveal-content {
+    flex-direction: column;    /* Change direction */
+    align-items: flex-start;   /* IMPORTANT: Override baseline alignment */
+    gap: 5px;                /* Override large desktop gap */
+    /* margin-left: 20px; is likely still desired and inherited, */
+    /* or can be explicitly stated again if needed */
+ }
+
+ #work .h2-wrapper .reveal-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* Or 'flex-end' */
+  width: 100%;
+  flex-wrap: nowrap;
+  box-sizing: border-box; /* <<< ADD THIS */
+}
+
+/* === ADD THIS NEW RULE === */
+/* Force zero margin/padding on the span itself */
+#work .h2-wrapper .reveal-content span {
+   margin: 0 !important;     /* Force zero margins */
+   padding: 0 !important;    /* Force zero padding */
+   /* Optional: Try text-align, though unlikely needed with space-between */
+   /* text-align: right; */
+   /* Ensure it doesn't shrink if space is tight */
+   flex-shrink: 0;
+}
+
+ .experience-list li { font-size: 1em; flex-wrap: wrap; gap: 5px; }
+ .experience-list .role,
+ .experience-list .place,
+ .experience-list .date { flex-basis: auto; text-align: left; width: 100%; }
+ .experience-list .role { font-weight: bold; }
+
+ .footer-content {
+  flex-direction: row; /* Keep items stacked */
+  gap: 15px;
+  align-items: center; /* Keep items centered */
+}
+
+footer .social-links {
+  width: 100%; /* Make the container take full available width */
+  justify-content: space-evenly; /* Distribute links */
+  gap: 0; /* Remove gap as space-between handles distribution */
+}
+}
+
+/* ============================================= */
+/* == Animations == */
+/* ============================================= */
+@keyframes revealFromBottom {
+  from { /* Corrected typo 'ffrom' to 'from' */
+    transform: translateY(105%); /* Start completely below the viewport */
+  }
+  to {
+    transform: translateY(0%);  /* End in the original position */
+  }
+}
+
+/* ============================================= */
+/* == General Reveal Animation Styles == */
+/* ============================================= */
+
+.reveal-wrapper { overflow: hidden; display: block; }
+.reveal-content { margin: 0; padding: 0; }
+
+/* Load-triggered animations */
+.hero-h1-wrapper .reveal-content,
+.subheading-wrapper .reveal-content,
+#work .h2-wrapper .reveal-content {
+  transform: translateY(105%);
+  animation-name: revealFromBottom;
+  animation-duration: 1.8s;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation-fill-mode: forwards;
+  will-change: transform;
+}
+
+/* Scroll-triggered animations */
+.reveal-on-scroll .reveal-content {
+  transform: translateY(100%); opacity: 0; visibility: hidden;
+  transition: transform 1.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+              opacity 0.9s ease-out,
+              visibility 0s 0.9s;
+  transition-delay: var(--reveal-delay, 0s);
+}
+.reveal-on-scroll.is-visible .reveal-content {
+  transform: translateY(0%); opacity: 1; visibility: visible;
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+/* ============================================= */
+/* == Project Page Styles == */
+/* ============================================= */
+
+/* --- Project Hero Title --- */
+.project-hero {
+  padding-top: 60px; /* Space above title */
+  padding-bottom: 120px; /* Space below title */
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.project-title-wrapper {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden; /* For reveal animation */
+}
+
+.project-title-wrapper h1 {
+  font-size: 5em; /* Match homepage hero */
+  line-height: 1.1;
+  margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; 
-  column-gap: 0px; 
-  margin: 0;      
+  font-weight: bold;
+  /* Animation handled by reveal-content */
+  animation-delay: 0.3s; /* Match homepage hero delay */
 }
 
-.v-legami {
-  padding: 20px;
+/* --- Project Details (Description & Metadata) --- */
+.project-details {
+  padding: 20px 20px; /* Vertical and horizontal padding */
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.details-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 20px;
+  gap: 60px;/* Space between columns */
 }
 
-/* --------------------------------------------------------------------------- */
-
-/*Rows inside columns*/
-
-.h-1 {
-  border-bottom: 1px solid black;
-  padding: 20px 20px;  
+.description-column .description-heading {
+  font-size: 1.1em; /* Smaller heading for description */
+  font-weight: normal;
+  color: #aaaaaa; /* Grey color like "HELLO" */
+  margin-bottom: 20px;  
+  text-transform: uppercase; /* Match prototype */
 }
 
-.h-2 {
-  border-bottom: 1px solid black;
-  padding: 20px 20px;    
+.description-column p {
+  font-size: 1.3em;  
+  margin: 0;
+  max-width: 60%; /* Keep lines from getting too long */
 }
 
-.h-2-about {
-  display: grid;
-  grid-template-columns: 1fr 1fr;      
+.metadata-column {
+    padding-top: 0; /* Align metadata items roughly with description text */
 }
 
-.h-3 {
-  border-bottom: 1px solid black;
-  padding: 20px 20px;
-  transition: color 0.15s;
+.metadata-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 1.1em;
 }
 
-.h-things-1 {
-  border-bottom: 1px solid black;
-  padding: 20px 20px;    
+.metadata-item .label {
+  color: #aaaaaa; /* Grey label */
+  flex-basis: 80%; /* Give label some space */
+  padding-right: 0;
 }
 
-@media (max-width:500px) {
-  .h-things-1 {    
-    padding: 8px 8px;      
-  }
-}
-
-.h-things-2 { 
-  display: grid;
-  grid-template-rows: 1fr 0.5fr;  
-  padding: 20px 20px;
-}
-
-@media (max-width:500px) {
-  .h-things-2 {    
-    padding: 8px 8px;      
-  }
-}
-
-.h-take {
-  display: grid;
-  grid-template-rows: 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr;
-  row-gap: 0px;
+.metadata-item .value {
+  color: #ffffff; /* White value */
+  flex-basis: 80%;
   text-align: left;
 }
 
-.h-take-micro {
-  padding: 20px 20px;
-  text-decoration: underline;
+.metadata-divider {
+    border: none;
+    height: 0.1px;
+    background-color: #333333;
+    margin: 0; /* Reset margin */
+    width: 100%; /* Make divider full width of column */
 }
 
-.h-footer {  
-  position: fixed;
-  font-size: 16px;   
-  bottom: 20px;
-  left: 20px;
-  }
 
-@media (max-width:500px) {
-  .h-footer {    
-    font-size: 10px;
-  }
+/* --- Project Media Placeholder --- */
+.project-media {
+  padding: 0px 20px; /* Only side padding */
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0; /* Space above */
+  margin-bottom: 0; /* Space below */
 }
 
-/* --------------------------------------------------------------------------- */
-
-/*Other*/
-
-.hover-index {
-  transition: color 0.15s;
+.media-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Common video/image ratio */
+  background-color: #b5b5b5; /* Grey placeholder */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #555; /* Optional: Text inside placeholder */
+  /* Add styling for actual images/videos here later */
 }
 
-.hover-index:hover {
-  color: white;  
+/* --- Project Pagination (Prev/Next) --- */
+.project-pagination {
+  padding: 40px 20px;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between; /* CHANGE to this: Pushes links apart */
+  align-items: flex-start; /* Align tops of links if text wraps */
 }
 
-.close { 
-  position: fixed;
-  bottom: 20px;
-  right: 20px;   
-  font-size: 40px;
-  color: black;
-  transition: color 0.15s;
+.pagination-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  flex-basis: 25%; /* Give each link roughly half the space, adjust as needed */
+  /* Ensure links don't grow excessively */
+  flex-grow: 0;
 }
 
-.close:hover {
-  color: white;
+.pagination-link:hover {
+  opacity: 0.7;
 }
 
-@media (max-width:500px) {
-  .close {  
-    bottom: 10px; 
-    font-size: 30px;          
-  }
+.pagination-link h2 {
+  font-size: 2em; /* Larger heading for project name */
+  margin: 0 0 15px 0;
+  font-weight: bold;
 }
 
-.image { 
-  width: 100vh;  
+.pagination-link span {
+  font-size: 1em;
+  color: #aaaaaa; /* Grey text for "PREVIOUS PROJECT" */
+  text-transform: uppercase;  
 }
 
-@media (max-width:500px) {
-  .image {    
-    width: 47vh;      
-  }
+/* Specific alignment for the next link */
+.pagination-link.next-link {
+  text-align: right; /* Align text content (h2, span) to the right */
 }
 
-.image-2 {
-  padding-bottom: 15px;
-  max-width: 100%;       
+.project-pagination .pagination-link.next-link:first-child:last-child {
+  margin-left: auto; /* Push this single element all the way to the right */
 }
 
-@media (max-width:500px) {
-  .image-2 {    
-    width: 50vh;      
-  }
+/* --- Responsive Adjustments for Project Page --- */
+@media (max-width: 992px) { /* Adjust breakpoint as needed */
+    .details-grid {
+        grid-template-columns: 1fr; /* Stack columns */
+        gap: 40px; /* Adjust gap for stacked layout */
+    }
+
+    .metadata-column {
+        padding-top: 0; /* Remove top padding when stacked */
+    }
+
+    .description-column p {
+        max-width: 100%; /* Use full width on smaller screens */
+    }
 }
 
-.video {
-  padding: 20px 20px;  
+@media (max-width: 768px) {
+    .project-title-wrapper h1 {
+        font-size: 2.5em; /* Match mobile hero */
+    }
+
+    .project-pagination .pagination-link h2 {
+        font-size: 1.5em;
+    }
+
+    .project-pagination .pagination-link span {
+        font-size: 0.8em;
+    }
+
+    .metadata-item {
+        font-size: 1em; /* Slightly smaller metadata on mobile */
+    }
+
+    .description-column .description-heading {
+       font-size: 1em;
+    }
+
+    .description-column p {
+       font-size: 1em;
+       line-height: 1.5;
+    }
+
+    .project-media {
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
 }
 
-.p-shifted {
-  padding-left: 40px;
+/* Ensure reveal animations use the correct delays set inline */
+.reveal-on-scroll .reveal-content {
+    /* Inherit base transitions from global styles */
+    transition-delay: var(--reveal-delay, 0s);
+}
+.reveal-on-scroll.is-visible .reveal-content {
+    /* Inherit base transforms/opacity from global styles */
+    transition-delay: var(--reveal-delay, 0s);
 }
 
-h1 {
-  margin: 0;
-  padding: 0;
-}
-
-sup {
-  color:white;
-}
-
-ol {
-  padding-left: 40px; 
-  margin: 0;  
-  max-width: 100vh;
-}
-
-@media (max-width:500px) {
-  ol {    
-    padding-left: 10px;      
-  }
-}
-
-li {
-  padding: 0;  
-  margin: 0;
-  max-width: 100vh;
-}
-
-.hovertext {
-  position: relative;
-  border-bottom: 1px solid black;
-  cursor: pointer;  
-}
-
-.hovertext:before {
-  content: attr(data-hover);
-  visibility: hidden;
-  opacity: 0;  
-  background-color: white;
-  color: black;
-  text-align: left;
-  border-radius: 10px;
-  padding: 10px;  
-  margin: 0;  
-  transition: opacity 0.15s ease-in-out;
-  position: fixed;
-  z-index: 2;
-  left: 52%;  
-  top: 50%;
-  font-size: 18px;
-  font-family: EB Garamond;
-  border: 1px solid black;  
-  display: block; 
-  width: 90vh; 
-}
-
-@media (max-width:500px) {
-  .hovertext:before {    
-    font-size: 14px;
-    left: 5%; 
-    width: 83vw;
-    top: 40%;            
-  }
-}
-
-.hovertext:hover:before {
-  opacity: 1;
-  visibility: visible; 
-}
-
-mark {
-  padding: 0px 5px;
-}
-
-/* --------------------------------------------------------------------------- */
+/* Override animation delay for specific reveal-content if needed */
+/* (Currently handled by inline styles in HTML for this example) */
