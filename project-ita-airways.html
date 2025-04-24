@@ -77,12 +77,44 @@
             </div>
         </section>
 
+        <!-- Project Media Section -->
         <section class="project-media reveal-wrapper reveal-on-scroll" style="--reveal-delay: 0.1s;">
-             <div class="media-placeholder reveal-content">
-                 <!-- Placeholder for your image gallery or video -->
-                 <!-- You can ignore the "GET TEMPLATE" button from the prototype unless it's actually part of your site -->
-             </div>
-         </section>        
+
+            <!-- Main Row: 3 Images + 1 Video Short (ALL 16:9 Containers) -->
+            <div class="media-item">
+                <div class="main-items-container"> <!-- Container for the row -->
+
+                    <!-- First Three Images -->
+                    <div class="main-image-item"> <!-- 16:9 Container -->
+                        <img src="images/ita-main-1.png" class="project-main-img">
+                    </div>
+                    <div class="main-image-item"> <!-- 16:9 Container -->
+                        <img src="images/ita-main-2.png" class="project-main-img">
+                    </div>
+                    <div class="main-image-item"> <!-- 16:9 Container -->
+                        <img src="images/ita-main-3.png" class="project-main-img">
+                    </div>
+                    <!-- End First Three Images -->
+
+                    <!-- Video Short Item (Replacing 4th Image) -->
+                    <div class="main-video-item"> <!-- 16:9 Container -->
+                        <!-- Direct iframe embed - iframe will fill this 16:9 container -->
+                        <iframe
+                            src="https://youtube.com/embed/CRMOR-jYNk8?autoplay=1&mute=1&loop=1&playlist=CRMOR-jYNk8&controls=0&modestbranding=1&rel=0&showinfo=0"
+                            title="Let's fly together towards the future!"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <!-- End Video Short Item -->
+
+                </div> <!-- End main-items-container -->
+            </div>
+            <!-- End Main Row -->            
+        </section>
+        <!-- End of Project Media Section -->        
 
         <section class="project-pagination reveal-wrapper reveal-on-scroll" style="--reveal-delay: 0.1s;">
              <a href="project-henkel.html" class="pagination-link prev-link reveal-content"> <!-- Link to the previous project page -->
@@ -125,6 +157,13 @@
             </div>
         </div>
     </footer>
+
+    <!-- Lightbox Structure (Hidden by Default) -->
+    <div id="lightbox-overlay">
+        <span id="lightbox-close">×</span>
+        <img id="lightbox-image" src="" alt="Enlarged project image">
+    </div>
+    <!-- End Lightbox Structure -->
 
     <script src="script.js"></script> <!-- Link the SAME JS file -->
 </body>

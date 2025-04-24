@@ -78,13 +78,37 @@
         </section>
 
         <section class="project-media reveal-wrapper reveal-on-scroll" style="--reveal-delay: 0.1s;">
-             <div class="media-placeholder reveal-content">
-                 <!-- Placeholder for your image gallery or video -->
-                 <!-- You can ignore the "GET TEMPLATE" button from the prototype unless it's actually part of your site -->
-             </div>
-         </section>        
 
-         <section class="project-pagination reveal-wrapper reveal-on-scroll" style="--reveal-delay: 0.1s;">
+            <div class="media-item">
+                <div class="secondary-images-container">
+                    <div class="secondary-image-item">
+                      <img src="images/henkel-secondary-1.png" class="project-secondary-img">
+                    </div>
+                    <div class="secondary-image-item">
+                        <iframe class="project-secondary-iframe" src="https://www.youtube.com/embed/BUzuXt2V4Kk?autoplay=1&mute=1&loop=1&playlist=BUzuXt2V4Kk&controls=0&modestbranding=1&rel=0&showinfo=0"                         
+                         frameborder="0"
+                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"                         
+                         allowfullscreen></iframe>                         
+                    </div>
+                </div>  
+            </div> 
+
+            <div class="media-item">
+                <div class="secondary-images-container">
+                    <div class="secondary-image-item">
+                      <img src="images/henkel-secondary-2.png" class="project-secondary-img">
+                    </div>
+                    <div class="secondary-image-item">
+                        <iframe class="project-secondary-iframe" src="https://www.youtube.com/embed/b-wlNce0sPs?autoplay=1&mute=1&loop=1&playlist=b-wlNce0sPs&controls=0&modestbranding=1&rel=0&showinfo=0"                         
+                         frameborder="0"
+                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"                         
+                         allowfullscreen></iframe>
+                    </div>                    
+                </div>
+            </div>
+        </section>           
+        
+        <section class="project-pagination reveal-wrapper reveal-on-scroll" style="--reveal-delay: 0.1s;">
             <!-- Previous Project Link -->
             <a href="project-majoneze.html" class="pagination-link prev-link reveal-content">
                 <h2>MAJONEZË SHORTFILM</h2>         <!-- CHANGE ME: Title of the PREVIOUS project -->
@@ -130,6 +154,13 @@
             </div>
         </div>
     </footer>
+
+     <!-- Lightbox Structure (Hidden by Default) -->
+     <div id="lightbox-overlay">
+        <span id="lightbox-close">×</span>
+        <img id="lightbox-image" src="" alt="Enlarged project image">
+    </div>
+    <!-- End Lightbox Structure -->
 
     <script src="script.js"></script> <!-- Link the SAME JS file -->
 </body>

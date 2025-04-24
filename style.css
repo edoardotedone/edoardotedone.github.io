@@ -263,6 +263,22 @@ section { /* Default section spacing */
   background-color: #b5b5b5; /* The grey color */
 }
 
+/* Styles for the actual project thumbnail images */
+.project-thumbnail-img {
+  display: block; /* Remove potential extra space below image */
+  width: 100%;   /* Make image fill the width of the link container */
+  height: 100%;  /* Make image fill the height of the link container */
+  object-fit: cover; /* Scale image to cover container, cropping if necessary */
+  /* object-fit: contain; */ /* Alternative: Fit image within container, may leave empty space */
+  transition: transform 0.4s ease-out; /* Optional: For hover effect */
+  
+  }
+
+/* Optional: Add a subtle zoom effect on hover */
+.project-item:hover .project-thumbnail-img {
+   transform: scale(1.05); /* Slightly enlarge image on hover */
+}
+
 .view-project-btn { /* The hover button */
   position: absolute;
   top: 50%;
@@ -762,3 +778,280 @@ footer .social-links {
 
 /* Override animation delay for specific reveal-content if needed */
 /* (Currently handled by inline styles in HTML for this example) */
+
+/* ============================================= */
+/* == Project Media Styles == */
+/* ============================================= */
+
+/* --- General Media Containers --- */
+.project-media {
+  padding: 0px 20px;
+  max-width: 1920px;
+  margin: 40px auto 40px auto;
+}
+.media-item {
+  margin-bottom: 20px;
+}
+.project-media .media-item:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Main Row: 3 Images + 1 Video (Equal Width, 16:9 Containers) --- */
+
+/* Container for the main row */
+.main-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+  /* align-items: stretch; /* Remove - height controlled by aspect ratio */
+}
+
+/* Styling for the IMAGE items */
+.main-image-item {
+  box-sizing: border-box;
+  /* Equal width basis for 4 items */
+  flex-basis: calc(25% - 15px);
+  flex-grow: 1;
+  min-width: 100px; /* Adjust min width */
+  background-color: transparent; /* Remove background if image shows through */
+}
+
+/* Styling for the actual images */
+.main-image-item .project-main-img {
+  display: block;
+  width: 100%;
+  height: auto; /* Let height be determined by intrinsic aspect ratio */
+  object-fit: contain; /* Your desired fit */
+  cursor: zoom-in;
+  transition: opacity 0.2s ease-in-out;
+  max-height: 100vh; /* Optional: Prevent image from becoming excessively tall */
+}
+.main-image-item .project-main-img:hover {
+  opacity: 0.75;
+}
+
+/* Styling for the VIDEO item */
+.main-video-item {
+  box-sizing: border-box;
+  /* Equal width basis for 4 items */
+  flex-basis: calc(25% - 15px);
+  flex-grow: 1;
+  min-width: 100px; /* Adjust min width */  
+  overflow: hidden;
+  background-color: #111; /* Background for container */
+  display: flex;
+}
+
+/* Styling for the iframe within its container */
+.main-video-item iframe {
+  display: block; /* Removes potential extra space below */
+  width: 100%;
+  height: 100%; /* Fill the height set by JS on parent */
+  border: 0;
+}
+
+/* --- Secondary Row: Equally Sized Images --- */
+
+/* Container for the secondary images */
+.secondary-images-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: stretch; /* Align tops */
+}
+
+/* Styling for secondary items */
+.secondary-image-item {
+  box-sizing: border-box;
+  flex: 1; /* Make them share space equally */
+  /* Optional: Calculate basis for 2 items if flex:1 isn't precise enough */
+  /* flex-basis: calc(50% - 10px); */
+  min-width: 280px; /* Minimum sensible width */
+  display: flex;
+  flex-direction: column; /* Stack content vertically if needed */
+}
+
+/* Styling for the actual secondary images */
+.project-secondary-img {
+  display: block;
+  width: 100%;
+  height: auto; /* Let height be natural */
+  object-fit: cover; /* Or 'contain' if preferred */
+  max-width: 100%; /* Ensure it doesn't overflow */
+  background-color: #333;
+  cursor: zoom-in;
+  transition: opacity 0.2s ease-in-out;
+}
+.project-secondary-img:hover {
+  opacity: 0.75;
+}
+
+/* --- Iframe Specific Styling --- */
+.project-secondary-iframe { /* New class targeting the iframe */
+  display: block; /* Remove potential spacing issues */
+  width: 100%;
+  /* CRITICAL: Fill the height given by the stretched parent */
+  height: 100%;
+  border: 0;
+}
+
+/* --- Responsive Adjustments --- */
+
+/* Medium Screens (e.g., Tablets) */
+@media (max-width: 992px) {
+  /* Main Row: Make items 2x2 */
+  .main-image-item,
+  .main-video-item {
+      flex-basis: calc(50% - 10px);
+      min-width: calc(50% - 10px);
+      /* Aspect ratio padding is maintained */
+  }
+  /* Secondary Row: Keep as is or stack if needed */
+   /* .secondary-image-item { flex-basis: 100%; min-width: 100%; } */
+}
+
+/* Small Screens (e.g., Phones) */
+@media (max-width: 768px) {
+  .media-item { margin-bottom: 15px; }
+  .project-media { margin-top: 30px; margin-bottom: 30px; }
+
+  /* Main Row: Stack all items vertically */
+  .main-image-item,
+  .main-video-item {
+      flex-basis: 100%;
+      min-width: 100%;
+      /* Aspect ratio padding is maintained */
+  }
+  .main-items-container { gap: 15px; }
+
+  .secondary-image-item {
+    flex-basis: 100%; /* Full width when stacked */
+    min-width: 100%;
+    height: auto; /* Reset height when stacked */
+    /* May need aspect ratio padding here if stacked height is weird */
+    /* position: relative; padding-bottom: 56.25%; */
+}
+.secondary-images-container {
+    gap: 15px; /* Adjust vertical gap when stacked */
+    align-items: flex-start; /* Reset alignment when stacked */
+}
+.project-secondary-iframe {
+     /* If using aspect ratio padding above, set absolute */
+     /* position: absolute; top: 0; left: 0; */
+     /* Otherwise, ensure height is appropriate */
+     height: 250px; /* Or calculate based on width */
+}
+}
+
+/* ============================================= */
+/* == Side-by-Side Vimeo Embed Styles == */
+/* ============================================= */
+
+/* Wrapper for each individual Vimeo video */
+.vimeo-item-wrapper {
+  box-sizing: border-box;
+  flex: 1; /* Make items share space equally */ 
+  min-width: 280px; /* Minimum width before wrapping/stacking */   
+  /* Apply standard 16:9 aspect ratio container */
+  position: relative;
+  height: 0;
+  padding-bottom: 44.48%; /* 9 / 16 * 100% */
+  overflow: hidden;
+  background-color: #111; /* Dark background */ 
+}
+
+/* Styling for the iframe itself */
+.vimeo-item-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.vimeo-row-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start; /* Align tops */
+}
+
+/* --- Responsive Adjustments for Vimeo Row --- */
+
+/* Stack videos on smaller screens */
+@media (max-width: 768px) { /* Stack items on smaller screens */
+  .secondary-image-item,
+  .vimeo-item-wrapper {
+      flex-basis: 100%; /* Full width when stacked */
+      min-width: 100%;
+  }
+  .secondary-images-container,
+  .vimeo-row-container {
+      gap: 15px; /* Adjust vertical gap when stacked */
+  }
+  .media-item { margin-bottom: 15px; }
+  .project-media { margin-top: 30px; margin-bottom: 30px; }
+}
+
+/* ============================================= */
+/* == Lightbox Styles == */
+/* ============================================= */
+
+/* Images that trigger the lightbox */
+.project-main-img,
+.project-secondary-img {
+    cursor: zoom-in; /* Indicate interactivity */
+    transition: opacity 0.2s ease-in-out;
+}
+.project-main-img:hover,
+.project-secondary-img:hover {
+    opacity: 0.75; /* Slight fade on hover */
+}
+
+/* Lightbox Overlay */
+#lightbox-overlay {
+    position: fixed; /* Cover the whole viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 15, 15, 0.95); /* Semi-transparent dark background */
+    display: none; /* Hidden by default - JS will change this */
+    justify-content: center; /* Center the image horizontally */
+    align-items: center;     /* Center the image vertically */
+    padding: 30px;          /* Padding around the image */
+    box-sizing: border-box;
+    z-index: 2000;         /* Ensure it's above everything else */
+    cursor: zoom-out;      /* Indicate clicking background closes it */
+}
+
+/* Enlarged Image inside the Lightbox */
+#lightbox-image {
+    display: block;
+    max-width: 95%;        /* Limit image width to viewport width */
+    max-height: 95%;       /* Limit image height to viewport height */
+    width: auto;           /* Maintain aspect ratio */
+    height: auto;          /* Maintain aspect ratio */
+    object-fit: contain;   /* Ensure image fits without distortion */
+    cursor: default;       /* Reset cursor when over the image itself */
+    background-color: #111; /* Dark bg while loading */
+}
+
+/* Close Button */
+#lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3em;        /* Make it easily clickable */
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    line-height: 0.6;      /* Adjust vertical alignment */
+    transition: color 0.2s ease;
+}
+
+#lightbox-close:hover {
+    color: #aaaaaa;
+}
