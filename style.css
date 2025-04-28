@@ -4,10 +4,10 @@
 
 :root {
   font-family: Inter, sans-serif;
-  font-feature-settings: 'liga' 1, 'calt' 1; /* Apply common ligatures and contextual alternates */
+  font-feature-settings: 'liga' 1, 'calt' 1;
 }
 @supports (font-variation-settings: normal) {
-  :root { font-family: InterVariable, sans-serif; } /* Use variable font if supported */
+  :root { font-family: InterVariable, sans-serif; }
 }
 
 body {
@@ -16,10 +16,9 @@ body {
   margin: 0;
   padding: 0;
   line-height: 20px;
-  overflow-x: hidden; /* Prevent horizontal scroll caused by full-width elements */
+  overflow-x: hidden;
 }
 
-/* Default heading styles */
 h1, h2, h3 { font-weight: bold; }
 h1 { font-size: 5em; }
 h2 { font-size: 2em; animation-fill-mode: forwards; }
@@ -27,48 +26,42 @@ h2 { font-size: 2em; animation-fill-mode: forwards; }
 .h2-wrapper .reveal-content { font-size: 2em; font-weight: bold; line-height: 1.2; animation-delay: 1s; }
 #work .h2-wrapper .reveal-content { display: flex; justify-content: space-between; align-items: baseline; animation-delay: 1s; }
 #work .h2-wrapper .reveal-content span { font-size: 1em; font-weight: bold; color: #ffffff; }
-#about .h2-wrapper .reveal-content { animation-delay: 1s; } /* Delay for ABOUT H2 */
+#about .h2-wrapper .reveal-content { animation-delay: 1s; }
 #about .h2-wrapper .reveal-content span { font-weight: bold; }
-#contact .h2-wrapper .reveal-content { animation-delay: 1s; } /* Delay for CONTACT H2 */
+#contact .h2-wrapper .reveal-content { animation-delay: 1s; }
 h3 { font-size: 1.2em; }
 
-/* Default paragraph styles */
 p { color: #ffffff; text-decoration: none; font-size: 1.1em; margin-top: 5px; margin-bottom: 5px; }
 
-/* Default link styles */
 a { color: #ffffff; text-decoration: none; font-size: 1em; }
 
 /* ============================================= */
 /* == Layout Helpers == */
 /* ============================================= */
 
-/* Consistent content width and padding */
 .header-content,
 .subheading-content,
 #work,
 .footer-content,
-#about, /* Added #about here for consistency */
-#contact /* Added #contact here for consistency */
+#about,
+#contact
 {
-  max-width: 1920px; /* Max width for content */
+  max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 20px; /* Side padding */
-  padding-right: 20px; /* Side padding */
-  /* padding-top removed from here as it varies */
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-/* Specific top padding for container elements if needed */
 .header-content, .footer-content { padding-top: 10px; }
 
 
-/* Divider style */
 .section-divider {
   border: none;
   height: 1px;
-  background-color: #333333; /* Dark grey line */
-  margin-left: 20px; /* Match content padding */
-  margin-right: 20px; /* Match content padding */
+  background-color: #333333;
+  margin-left: 20px;
+  margin-right: 20px;
   margin-bottom: 0;
   margin-top: 0;
 }
@@ -78,13 +71,13 @@ a { color: #ffffff; text-decoration: none; font-size: 1em; }
 /* ============================================= */
 
 header {
-  position: fixed; /* Stick header to top */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #0f0f0f; /* Match body background */
-  z-index: 1000; /* Ensure header is above other content */
-  padding-top: 10px; /* Use header padding instead of header-content */
+  background-color: #0f0f0f;
+  z-index: 1000;
+  padding-top: 10px;
   padding-bottom: 20px;
 }
 
@@ -95,13 +88,13 @@ header {
 }
 
 .header-name {
-  font-weight: normal; /* Specific style for name link */
+  font-weight: normal;
   opacity: 1;
   transition: opacity 0.5s ease;
 }
 
 .header-name:hover {
-  opacity: 0.5; /* Set desired opacity on hover */
+  opacity: 0.5;
 }
 
 header nav ul {
@@ -109,7 +102,7 @@ header nav ul {
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 20px; /* Space between nav items */
+  gap: 20px;
 }
 
 header nav ul li a.nav-link-animated {
@@ -121,14 +114,12 @@ header nav ul li a.nav-link-animated {
   padding: 0;
 }
 
-/* Common style for both text spans inside the link */
 header nav ul li a.nav-link-animated span {
   display: block;
   transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
   transform: translateY(0%);
 }
 
-/* Position the clone text directly below the original */
 header nav ul li a.nav-link-animated span.nav-text-clone {
   position: absolute;
   top: 0;
@@ -137,17 +128,16 @@ header nav ul li a.nav-link-animated span.nav-text-clone {
   transform: translateY(105%);
 }
 
-/* HOVER EFFECT: Animate text upwards */
 header nav ul li a.nav-link-animated:hover span.nav-text-original {
   transform: translateY(-105%);
 }
 
 header nav ul li a.nav-link-animated:hover span.nav-text-clone {
-  transform: translateY(0%); /* Move clone text up into view */
+  transform: translateY(0%);
 }
 
 header nav a:hover {
-  text-decoration: none; /* Ensure no underline on hover */
+  text-decoration: none;
 }
 
 /* ============================================= */
@@ -155,11 +145,11 @@ header nav a:hover {
 /* ============================================= */
 
 main {
-  padding-top: 60px; /* Space below fixed header */
+  padding-top: 60px;
   padding-bottom: 10px;
 }
 
-section { /* Default section spacing */
+section {
  padding-top: 20px;
  padding-bottom: 30px;
 }
@@ -168,26 +158,21 @@ section { /* Default section spacing */
 /* == Hero Section == */
 /* ============================================= */
 
-/* Style the H1 wrapper */
 #hero .hero-h1-wrapper {
-  overflow: hidden; /* Hides the part of H1 outside the wrapper */
+  overflow: hidden;
   display: block;
-  margin-left: 20px; /* Apply left margin here */
-  margin-bottom: 90px; /* Apply bottom margin here */
+  margin-left: 20px;
+  margin-bottom: 90px;
   margin-top: 40px;
 }
 
-/* Style the H1 *inside* the wrapper - Keep base styles if needed, animation handled globally */
-#hero .hero-h1-wrapper .reveal-content { /* Target the H1 via its class */
-  font-size: 5em; /* Re-apply font size */
+#hero .hero-h1-wrapper .reveal-content {
+  font-size: 5em;
   line-height: 1.1;
-  margin: 0; /* Ensure no default margins */
-  padding: 0; /* Ensure no default padding */
-  /* Animation properties handled by general .reveal-content rule */
-  animation-delay: 0.3s; /* Specific animation delay for H1 */
+  margin: 0;
+  padding: 0;
+  animation-delay: 0.3s;
 }
-
-/* Removed the specific H1 animation block as it's now handled by the general rules below */
 
 
 /* ============================================= */
@@ -196,15 +181,14 @@ section { /* Default section spacing */
 
 .subheading-content {
   display: flex;
-  align-items: baseline; /* Align text nicely */
+  align-items: baseline;
   padding-top: 0;
-  gap: 250px; /* Large gap between "HELLO" and the text */
-  /* Max-width and padding handled by shared rule */
+  gap: 250px;
 }
 
 .subheading-hello {
   font-weight: normal;
-  color: #aaaaaa; /* Grey color for "HELLO" */
+  color: #aaaaaa;
 }
 
 .subheading-text {
@@ -217,11 +201,11 @@ section { /* Default section spacing */
   padding-top: 0;
 }
 
-.subheading-wrapper .reveal-content { /* Targeting .subheading-content */
+.subheading-wrapper .reveal-content {
   display: flex;
   align-items: baseline;
   gap: 250px;
-  animation-delay: 0.35s; /* Slightly after H1 */
+  animation-delay: 0.35s;
   margin-left: 20px;
 }
 
@@ -234,103 +218,95 @@ section { /* Default section spacing */
 /* == Work Section (Portfolio Grid) == */
 /* ============================================= */
 
-/* Removed redundant #work h2 rule - styles are on .reveal-content */
-/* Removed redundant #work h2 span rule - styles are on .reveal-content span */
-
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two equal columns */
-  gap: 20px; /* Space between grid items */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
-.project-unit { /* Wrapper for each project (image + text below) */
+.project-unit {
   display: flex;
-  flex-direction: column; /* Stack image link and text vertically */
-  gap: 10px; /* Space between image and text */
+  flex-direction: column;
+  gap: 10px;
 }
 
-.project-item { /* The link wrapping the image/placeholder and hover button */
-  position: relative; /* For absolute positioning of the button */
-  display: block; /* Make it block-level */
-  aspect-ratio: 1 / 0.75; /* Maintain aspect ratio */
-  overflow: hidden; /* Hide overflowing button parts if needed */
+.project-item {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 0.75;
+  overflow: hidden;
 }
 
-.project-image-placeholder { /* The grey box */
-  height: 100%;
-  width: 100%;
-  display: block; /* Ensure it fills the container */
-  background-color: #b5b5b5; /* The grey color */
-}
-
-/* Styles for the actual project thumbnail images */
 .project-thumbnail-img {
-  display: block; /* Remove potential extra space below image */
-  width: 100%;   /* Make image fill the width of the link container */
-  height: 100%;  /* Make image fill the height of the link container */
-  object-fit: cover; /* Scale image to cover container, cropping if necessary */
-  /* object-fit: contain; */ /* Alternative: Fit image within container, may leave empty space */
-  transition: transform 0.4s ease-out; /* Optional: For hover effect */
-  
-  }
-
-/* Optional: Add a subtle zoom effect on hover */
-.project-item:hover .project-thumbnail-img {
-   transform: scale(1.05); /* Slightly enlarge image on hover */
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease-out;
 }
 
-.view-project-btn { /* The hover button */
+.project-item:hover .project-thumbnail-img {
+   transform: scale(1.05);
+}
+
+.view-project-btn {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Center the button */
-  z-index: 10; /* Ensure button is above placeholder */
-  background-color: rgba(240, 240, 240, 0.100); /* Semi-transparent white */
-  color: #ffffff; /* White text */
-  padding: 10px 20px; /* Button padding */
-  border-radius: 50px; /* Pill shape */
-  font-size: 1em; /* Button text size */
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 1em;
   font-weight: normal;
-  text-transform: uppercase; /* Uppercase text */
-  white-space: nowrap; /* Prevent text wrapping */
-  display: inline-flex; /* Align icon and text */
-  align-items: center; /* Vertical alignment */
-  gap: 8px; /* Space between icon and text */
-  cursor: pointer; /* Indicate interactivity */
-  opacity: 0; /* Hidden by default */
-  visibility: hidden; /* Hidden by default */
-  transition: opacity 0.6s ease, visibility 0.6s ease; /* Smooth fade */
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
-.view-project-btn .eye-icon { /* Styling for the SVG eye */
+.view-project-btn .eye-icon {
   width: 1.2em;
   height: 1.2em;
-  display: inline-block; /* Ensures proper alignment */
+  display: inline-block;
 }
 
-.project-item:hover .view-project-btn { /* Show button on hover */
+.project-item:hover .view-project-btn {
   opacity: 1;
   visibility: visible;
 }
 
-.project-text { /* Text block below the image */
+.project-text {
   display: flex;
-  justify-content: space-between; /* Title left, type right */
+  justify-content: space-between;
   align-items: baseline;
   color: #ffffff;
 }
 
-.project-text h3 { /* Project Title */
+.value a:hover {
+  opacity: 0.5;
+}
+
+.project-text h3 {
   margin: 0;
   font-weight: normal;
   color: #ffffff;
   font-size: 1em;
 }
 
-.project-text span { /* Project Type (FOOH, Motion Design, etc.) */
+.project-text span {
   font-size: 1em;
-  color: #b0b0b0; /* Lighter grey color */
+  font-weight: normal;
+  color: #ffffff;
   text-align: right;
+  opacity: 0.25;
 }
 
 /* ============================================= */
@@ -338,34 +314,26 @@ section { /* Default section spacing */
 /* ============================================= */
 
 #about {
-  /* padding/max-width removed - applied to inner wrappers */
-  padding-top: 100px; /* Specific top padding for About */
-  /* padding-bottom will depend on the full-width section */
+  padding-top: 100px;
 }
 
-/* Styles for the constrained intro part */
 .about-content-constrained {
-  /* Inherits max-width and padding from shared rule */
-  margin-bottom: 40px; /* Space before the full-width section */
+  margin-bottom: 40px;
 }
 
 .about-intro {
-  /* Removed margin-bottom here, added to parent container */
-  max-width: 40%; /* Limit width of intro text */
+  max-width: 40%;
   font-size: 1.1em;
 }
 
-/* Styles for the full-width experience section */
 .about-experience-fullwidth {
-  width: 100%; /* Ensure it takes full viewport width */
-  /* Add background color or other full-bleed styles if desired */
-  /* background-color: #1a1a1a; */
-  padding-top: 40px; /* Space inside the full-width section */
-  padding-bottom: 40px; /* Space inside the full-width section */
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
-.about-column { /* Shared styles for columns if more are added */
-  flex: 1; /* Allow columns to share space */
+.about-column {
+  flex: 1;
 }
 
 .about-column h3 {
@@ -375,7 +343,6 @@ section { /* Default section spacing */
 .about-column ul { list-style: none; padding: 0; margin: 0; }
 .about-column li { margin-bottom: 15px; }
 
-/* Experience list specific styling */
 .experience-list li {
   display: flex; justify-content: space-between;
   border-bottom: 1px solid #333333;
@@ -390,13 +357,11 @@ section { /* Default section spacing */
 /* ============================================= */
 
 #contact {
-  /* Max-width and padding handled by shared rule */
-  padding-top: 120px; /* Specific top padding */
-  padding-bottom: 60px; /* Specific bottom padding */
-  /* Text styled by global 'p' rule */
+  padding-top: 120px;
+  padding-bottom: 60px;
 }
 
-#contact .cta-button { /* Email link button */
+#contact .cta-button {
   display: inline-block;
   background-color: #202020;
   color: #ffffff;
@@ -408,7 +373,7 @@ section { /* Default section spacing */
   transition: opacity 0.3s ease-in;
 }
 
-#contact .cta-button:hover {  
+#contact .cta-button:hover {
   opacity: 0.5;
 }
 
@@ -423,19 +388,18 @@ footer {
 
 .footer-content {
      display: flex;
-     justify-content: space-between; /* Name left, links right */
-     align-items: center; /* Vertically align items */
-     /* Max-width and padding handled by shared rule */
+     justify-content: space-between;
+     align-items: center;
  }
 
  footer .social-links {
-    margin-top: 0; /* Reset margin */
+    margin-top: 0;
     display: flex;
-    gap: 30px; /* Space between social links */
+    gap: 30px;
  }
 
- .footer-content a { /* Style links in footer */
-  color: #b5b5b5; /* Grey color */
+ .footer-content a {
+  color: #b5b5b5;
   font-size: 1em;
   opacity: 1;
   transition: opacity 0.5s ease;
@@ -446,9 +410,8 @@ footer {
 }
 
 footer .social-links {
-  margin-top: 0; /* Reset margin */
+  margin-top: 0;
   display: flex;
-  /* gap: 30px; /* Desktop gap - overridden on mobile */
 }
 
 /* ============================================= */
@@ -460,41 +423,33 @@ footer .social-links {
   h2 { font-size: 1.8em; }
   .project-grid { grid-template-columns: 1fr; }
 
-  /* Adjust About section for mobile */
-  .about-content-constrained { margin-bottom: 40px; } /* Reduce space */
+  .about-content-constrained { margin-bottom: 40px; }
   .about-intro { max-width: 100%; }
-  .about-experience-fullwidth { padding-top: 20px; padding-bottom: 20px; } /* Reduce padding */
+  .about-experience-fullwidth { padding-top: 20px; padding-bottom: 20px; }
 
    header nav ul {
-      justify-content: center; /* Center nav items */
-      gap: 30px; /* INCREASED space between nav items */
+      justify-content: center;
+      gap: 30px;
    }
-   
+
    .subheading-wrapper .reveal-content {
-    flex-direction: column;    /* Change direction */
-    align-items: flex-start;   /* IMPORTANT: Override baseline alignment */
-    gap: 5px;                /* Override large desktop gap */
-    /* margin-left: 20px; is likely still desired and inherited, */
-    /* or can be explicitly stated again if needed */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
  }
 
  #work .h2-wrapper .reveal-content {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end; /* Or 'flex-end' */
+  align-items: flex-end;
   width: 100%;
   flex-wrap: nowrap;
-  box-sizing: border-box; /* <<< ADD THIS */
+  box-sizing: border-box;
 }
 
-/* === ADD THIS NEW RULE === */
-/* Force zero margin/padding on the span itself */
 #work .h2-wrapper .reveal-content span {
-   margin: 0 !important;     /* Force zero margins */
-   padding: 0 !important;    /* Force zero padding */
-   /* Optional: Try text-align, though unlikely needed with space-between */
-   /* text-align: right; */
-   /* Ensure it doesn't shrink if space is tight */
+   margin: 0 !important;
+   padding: 0 !important;
    flex-shrink: 0;
 }
 
@@ -505,15 +460,15 @@ footer .social-links {
  .experience-list .role { font-weight: bold; }
 
  .footer-content {
-  flex-direction: row; /* Keep items stacked */
+  flex-direction: row;
   gap: 15px;
-  align-items: center; /* Keep items centered */
+  align-items: center;
 }
 
 footer .social-links {
-  width: 100%; /* Make the container take full available width */
-  justify-content: space-evenly; /* Distribute links */
-  gap: 0; /* Remove gap as space-between handles distribution */
+  width: 100%;
+  justify-content: space-evenly;
+  gap: 0;
 }
 }
 
@@ -521,11 +476,11 @@ footer .social-links {
 /* == Animations == */
 /* ============================================= */
 @keyframes revealFromBottom {
-  from { /* Corrected typo 'ffrom' to 'from' */
-    transform: translateY(105%); /* Start completely below the viewport */
+  from {
+    transform: translateY(105%);
   }
   to {
-    transform: translateY(0%);  /* End in the original position */
+    transform: translateY(0%);
   }
 }
 
@@ -536,7 +491,6 @@ footer .social-links {
 .reveal-wrapper { overflow: hidden; display: block; }
 .reveal-content { margin: 0; padding: 0; }
 
-/* Load-triggered animations */
 .hero-h1-wrapper .reveal-content,
 .subheading-wrapper .reveal-content,
 #work .h2-wrapper .reveal-content {
@@ -548,7 +502,6 @@ footer .social-links {
   will-change: transform;
 }
 
-/* Scroll-triggered animations */
 .reveal-on-scroll .reveal-content {
   transform: translateY(100%); opacity: 0; visibility: hidden;
   transition: transform 1.8s cubic-bezier(0.2, 0.8, 0.2, 1),
@@ -565,10 +518,9 @@ footer .social-links {
 /* == Project Page Styles == */
 /* ============================================= */
 
-/* --- Project Hero Title --- */
 .project-hero {
-  padding-top: 60px; /* Space above title */
-  padding-bottom: 120px; /* Space below title */
+  padding-top: 60px;
+  padding-bottom: 120px;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -577,22 +529,20 @@ footer .social-links {
   max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden; /* For reveal animation */
+  overflow: hidden;
 }
 
 .project-title-wrapper h1 {
-  font-size: 5em; /* Match homepage hero */
+  font-size: 5em;
   line-height: 1.1;
   margin: 0;
   padding: 0;
   font-weight: bold;
-  /* Animation handled by reveal-content */
-  animation-delay: 0.3s; /* Match homepage hero delay */
+  animation-delay: 0.3s;
 }
 
-/* --- Project Details (Description & Metadata) --- */
 .project-details {
-  padding: 20px 20px; /* Vertical and horizontal padding */
+  padding: 20px 20px;
   max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
@@ -601,25 +551,25 @@ footer .social-links {
 .details-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;/* Space between columns */
+  gap: 60px;
 }
 
 .description-column .description-heading {
-  font-size: 1.1em; /* Smaller heading for description */
+  font-size: 1.1em;
   font-weight: normal;
-  color: #aaaaaa; /* Grey color like "HELLO" */
-  margin-bottom: 20px;  
-  text-transform: uppercase; /* Match prototype */
+  color: #aaaaaa;
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 .description-column p {
-  font-size: 1.3em;  
+  font-size: 1.3em;
   margin: 0;
-  max-width: 60%; /* Keep lines from getting too long */
+  max-width: 60%;
 }
 
 .metadata-column {
-    padding-top: 0; /* Align metadata items roughly with description text */
+    padding-top: 0;
 }
 
 .metadata-item {
@@ -632,13 +582,13 @@ footer .social-links {
 }
 
 .metadata-item .label {
-  color: #aaaaaa; /* Grey label */
-  flex-basis: 80%; /* Give label some space */
+  color: #aaaaaa;
+  flex-basis: 80%;
   padding-right: 0;
 }
 
 .metadata-item .value {
-  color: #ffffff; /* White value */
+  color: #ffffff;
   flex-basis: 80%;
   text-align: left;
 }
@@ -647,49 +597,45 @@ footer .social-links {
     border: none;
     height: 0.1px;
     background-color: #333333;
-    margin: 0; /* Reset margin */
-    width: 100%; /* Make divider full width of column */
+    margin: 0;
+    width: 100%;
 }
 
 
-/* --- Project Media Placeholder --- */
 .project-media {
-  padding: 0px 20px; /* Only side padding */
+  padding: 0px 20px;
   max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 0; /* Space above */
-  margin-bottom: 0; /* Space below */
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .media-placeholder {
   width: 100%;
-  aspect-ratio: 16 / 9; /* Common video/image ratio */
-  background-color: #b5b5b5; /* Grey placeholder */
+  aspect-ratio: 16 / 9;
+  background-color: #b5b5b5;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #555; /* Optional: Text inside placeholder */
-  /* Add styling for actual images/videos here later */
+  color: #555;
 }
 
-/* --- Project Pagination (Prev/Next) --- */
 .project-pagination {
   padding: 40px 20px;
   max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
-  justify-content: space-between; /* CHANGE to this: Pushes links apart */
-  align-items: flex-start; /* Align tops of links if text wraps */
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .pagination-link {
   color: #ffffff;
   text-decoration: none;
   transition: opacity 0.3s ease;
-  flex-basis: 25%; /* Give each link roughly half the space, adjust as needed */
-  /* Ensure links don't grow excessively */
+  flex-basis: 25%;
   flex-grow: 0;
 }
 
@@ -698,45 +644,43 @@ footer .social-links {
 }
 
 .pagination-link h2 {
-  font-size: 2em; /* Larger heading for project name */
+  font-size: 2em;
   margin: 0 0 15px 0;
   font-weight: bold;
 }
 
 .pagination-link span {
   font-size: 1em;
-  color: #aaaaaa; /* Grey text for "PREVIOUS PROJECT" */
-  text-transform: uppercase;  
+  color: #aaaaaa;
+  text-transform: uppercase;
 }
 
-/* Specific alignment for the next link */
 .pagination-link.next-link {
-  text-align: right; /* Align text content (h2, span) to the right */
+  text-align: right;
 }
 
 .project-pagination .pagination-link.next-link:first-child:last-child {
-  margin-left: auto; /* Push this single element all the way to the right */
+  margin-left: auto;
 }
 
-/* --- Responsive Adjustments for Project Page --- */
-@media (max-width: 992px) { /* Adjust breakpoint as needed */
+@media (max-width: 992px) {
     .details-grid {
-        grid-template-columns: 1fr; /* Stack columns */
-        gap: 40px; /* Adjust gap for stacked layout */
+        grid-template-columns: 1fr;
+        gap: 40px;
     }
 
     .metadata-column {
-        padding-top: 0; /* Remove top padding when stacked */
+        padding-top: 0;
     }
 
     .description-column p {
-        max-width: 100%; /* Use full width on smaller screens */
+        max-width: 100%;
     }
 }
 
 @media (max-width: 768px) {
     .project-title-wrapper h1 {
-        font-size: 2.5em; /* Match mobile hero */
+        font-size: 2.5em;
     }
 
     .project-pagination .pagination-link h2 {
@@ -748,7 +692,7 @@ footer .social-links {
     }
 
     .metadata-item {
-        font-size: 1em; /* Slightly smaller metadata on mobile */
+        font-size: 1em;
     }
 
     .description-column .description-heading {
@@ -766,24 +710,17 @@ footer .social-links {
     }
 }
 
-/* Ensure reveal animations use the correct delays set inline */
 .reveal-on-scroll .reveal-content {
-    /* Inherit base transitions from global styles */
     transition-delay: var(--reveal-delay, 0s);
 }
 .reveal-on-scroll.is-visible .reveal-content {
-    /* Inherit base transforms/opacity from global styles */
     transition-delay: var(--reveal-delay, 0s);
 }
-
-/* Override animation delay for specific reveal-content if needed */
-/* (Currently handled by inline styles in HTML for this example) */
 
 /* ============================================= */
 /* == Project Media Styles == */
 /* ============================================= */
 
-/* --- General Media Containers --- */
 .project-media {
   padding: 0px 20px;
   max-width: 1920px;
@@ -796,89 +733,72 @@ footer .social-links {
   margin-bottom: 0;
 }
 
-/* --- Main Row: 3 Images + 1 Video (Equal Width, 16:9 Containers) --- */
-
-/* Container for the main row */
 .main-items-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   align-items: flex-start;
-  /* align-items: stretch; /* Remove - height controlled by aspect ratio */
 }
 
-/* Styling for the IMAGE items */
 .main-image-item {
   box-sizing: border-box;
-  /* Equal width basis for 4 items */
   flex-basis: calc(25% - 15px);
   flex-grow: 1;
-  min-width: 100px; /* Adjust min width */
-  background-color: transparent; /* Remove background if image shows through */
+  min-width: 100px;
+  background-color: transparent;
 }
 
-/* Styling for the actual images */
 .main-image-item .project-main-img {
   display: block;
   width: 100%;
-  height: auto; /* Let height be determined by intrinsic aspect ratio */
-  object-fit: contain; /* Your desired fit */
+  height: auto;
+  object-fit: contain;
   cursor: zoom-in;
   transition: opacity 0.2s ease-in-out;
-  max-height: 100vh; /* Optional: Prevent image from becoming excessively tall */
+  max-height: 100vh;
 }
 .main-image-item .project-main-img:hover {
   opacity: 0.75;
 }
 
-/* Styling for the VIDEO item */
 .main-video-item {
   box-sizing: border-box;
-  /* Equal width basis for 4 items */
   flex-basis: calc(25% - 15px);
   flex-grow: 1;
-  min-width: 100px; /* Adjust min width */  
+  min-width: 100px;
   overflow: hidden;
-  background-color: #111; /* Background for container */
+  background-color: #111;
   display: flex;
 }
 
-/* Styling for the iframe within its container */
 .main-video-item iframe {
-  display: block; /* Removes potential extra space below */
+  display: block;
   width: 100%;
-  height: 100%; /* Fill the height set by JS on parent */
+  height: 100%;
   border: 0;
 }
 
-/* --- Secondary Row: Equally Sized Images --- */
-
-/* Container for the secondary images */
 .secondary-images-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  align-items: stretch; /* Align tops */
+  align-items: stretch;
 }
 
-/* Styling for secondary items */
 .secondary-image-item {
   box-sizing: border-box;
-  flex: 1; /* Make them share space equally */
-  /* Optional: Calculate basis for 2 items if flex:1 isn't precise enough */
-  /* flex-basis: calc(50% - 10px); */
-  min-width: 280px; /* Minimum sensible width */
+  flex: 1;
+  min-width: 280px;
   display: flex;
-  flex-direction: column; /* Stack content vertically if needed */
+  flex-direction: column;
 }
 
-/* Styling for the actual secondary images */
 .project-secondary-img {
   display: block;
   width: 100%;
-  height: auto; /* Let height be natural */
-  object-fit: cover; /* Or 'contain' if preferred */
-  max-width: 100%; /* Ensure it doesn't overflow */
+  height: auto;
+  object-fit: cover;
+  max-width: 100%;
   background-color: #333;
   cursor: zoom-in;
   transition: opacity 0.2s ease-in-out;
@@ -887,60 +807,43 @@ footer .social-links {
   opacity: 0.75;
 }
 
-/* --- Iframe Specific Styling --- */
-.project-secondary-iframe { /* New class targeting the iframe */
-  display: block; /* Remove potential spacing issues */
+.project-secondary-iframe {
+  display: block;
   width: 100%;
-  /* CRITICAL: Fill the height given by the stretched parent */
   height: 100%;
   border: 0;
 }
 
-/* --- Responsive Adjustments --- */
-
-/* Medium Screens (e.g., Tablets) */
 @media (max-width: 992px) {
-  /* Main Row: Make items 2x2 */
   .main-image-item,
   .main-video-item {
       flex-basis: calc(50% - 10px);
       min-width: calc(50% - 10px);
-      /* Aspect ratio padding is maintained */
   }
-  /* Secondary Row: Keep as is or stack if needed */
-   /* .secondary-image-item { flex-basis: 100%; min-width: 100%; } */
 }
 
-/* Small Screens (e.g., Phones) */
 @media (max-width: 768px) {
   .media-item { margin-bottom: 15px; }
   .project-media { margin-top: 30px; margin-bottom: 30px; }
 
-  /* Main Row: Stack all items vertically */
   .main-image-item,
   .main-video-item {
       flex-basis: 100%;
       min-width: 100%;
-      /* Aspect ratio padding is maintained */
   }
   .main-items-container { gap: 15px; }
 
   .secondary-image-item {
-    flex-basis: 100%; /* Full width when stacked */
+    flex-basis: 100%;
     min-width: 100%;
-    height: auto; /* Reset height when stacked */
-    /* May need aspect ratio padding here if stacked height is weird */
-    /* position: relative; padding-bottom: 56.25%; */
+    height: auto;
 }
 .secondary-images-container {
-    gap: 15px; /* Adjust vertical gap when stacked */
-    align-items: flex-start; /* Reset alignment when stacked */
+    gap: 15px;
+    align-items: flex-start;
 }
 .project-secondary-iframe {
-     /* If using aspect ratio padding above, set absolute */
-     /* position: absolute; top: 0; left: 0; */
-     /* Otherwise, ensure height is appropriate */
-     height: 250px; /* Or calculate based on width */
+     height: 250px;
 }
 }
 
@@ -948,20 +851,17 @@ footer .social-links {
 /* == Side-by-Side Vimeo Embed Styles == */
 /* ============================================= */
 
-/* Wrapper for each individual Vimeo video */
 .vimeo-item-wrapper {
   box-sizing: border-box;
-  flex: 1; /* Make items share space equally */ 
-  min-width: 280px; /* Minimum width before wrapping/stacking */   
-  /* Apply standard 16:9 aspect ratio container */
+  flex: 1;
+  min-width: 280px;
   position: relative;
   height: 0;
-  padding-bottom: 44.48%; /* 9 / 16 * 100% */
+  padding-bottom: 44.48%;
   overflow: hidden;
-  background-color: #111; /* Dark background */ 
+  background-color: #111;
 }
 
-/* Styling for the iframe itself */
 .vimeo-item-wrapper iframe {
   position: absolute;
   top: 0;
@@ -975,21 +875,18 @@ footer .social-links {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  align-items: flex-start; /* Align tops */
+  align-items: flex-start;
 }
 
-/* --- Responsive Adjustments for Vimeo Row --- */
-
-/* Stack videos on smaller screens */
-@media (max-width: 768px) { /* Stack items on smaller screens */
+@media (max-width: 768px) {
   .secondary-image-item,
   .vimeo-item-wrapper {
-      flex-basis: 100%; /* Full width when stacked */
+      flex-basis: 100%;
       min-width: 100%;
   }
   .secondary-images-container,
   .vimeo-row-container {
-      gap: 15px; /* Adjust vertical gap when stacked */
+      gap: 15px;
   }
   .media-item { margin-bottom: 15px; }
   .project-media { margin-top: 30px; margin-bottom: 30px; }
@@ -999,56 +896,52 @@ footer .social-links {
 /* == Lightbox Styles == */
 /* ============================================= */
 
-/* Images that trigger the lightbox */
 .project-main-img,
 .project-secondary-img {
-    cursor: zoom-in; /* Indicate interactivity */
+    cursor: zoom-in;
     transition: opacity 0.2s ease-in-out;
 }
 .project-main-img:hover,
 .project-secondary-img:hover {
-    opacity: 0.75; /* Slight fade on hover */
+    opacity: 0.75;
 }
 
-/* Lightbox Overlay */
 #lightbox-overlay {
-    position: fixed; /* Cover the whole viewport */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 15, 15, 0.95); /* Semi-transparent dark background */
-    display: none; /* Hidden by default - JS will change this */
-    justify-content: center; /* Center the image horizontally */
-    align-items: center;     /* Center the image vertically */
-    padding: 30px;          /* Padding around the image */
+    background-color: rgba(15, 15, 15, 0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
     box-sizing: border-box;
-    z-index: 2000;         /* Ensure it's above everything else */
-    cursor: zoom-out;      /* Indicate clicking background closes it */
+    z-index: 2000;
+    cursor: zoom-out;
 }
 
-/* Enlarged Image inside the Lightbox */
 #lightbox-image {
     display: block;
-    max-width: 95%;        /* Limit image width to viewport width */
-    max-height: 95%;       /* Limit image height to viewport height */
-    width: auto;           /* Maintain aspect ratio */
-    height: auto;          /* Maintain aspect ratio */
-    object-fit: contain;   /* Ensure image fits without distortion */
-    cursor: default;       /* Reset cursor when over the image itself */
-    background-color: #111; /* Dark bg while loading */
+    max-width: 95%;
+    max-height: 95%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    cursor: default;
+    background-color: #111;
 }
 
-/* Close Button */
 #lightbox-close {
     position: absolute;
     top: 20px;
     right: 30px;
-    font-size: 3em;        /* Make it easily clickable */
+    font-size: 3em;
     font-weight: bold;
     color: #ffffff;
     cursor: pointer;
-    line-height: 0.6;      /* Adjust vertical alignment */
+    line-height: 0.6;
     transition: color 0.2s ease;
 }
 
