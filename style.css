@@ -819,14 +819,6 @@ footer .social-links {
   border: 0;
 }
 
-@media (max-width: 992px) {
-  .main-image-item,
-  .main-video-item {
-      flex-basis: calc(50% - 10px);
-      min-width: calc(50% - 10px);
-  }
-}
-
 @media (max-width: 768px) {
   .media-item { margin-bottom: 15px; }
   .project-media { margin-top: 30px; margin-bottom: 30px; }

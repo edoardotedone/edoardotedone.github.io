@@ -55,13 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (firstImageItem && videoItem) {
             const targetHeight = firstImageItem.offsetHeight;
-
-            if (targetHeight > 0) {
-                 videoItem.style.height = `${targetHeight}px`;
-            } else {
-                // Target image height is 0px, likely not rendered/loaded yet.
-                // Image load listener should handle this.
-            }
+           
         } else {
              // Could not find reference image item or video item.
         }
