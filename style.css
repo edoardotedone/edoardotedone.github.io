@@ -766,13 +766,18 @@ footer .social-links {
   flex-basis: calc(25% - 15px);
   flex-grow: 1;
   min-width: 100px;
-  overflow: hidden;
   background-color: #111;
-  display: flex;
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 */
+  overflow: hidden; 
+  
 }
 
 .main-video-item iframe {
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border: 0;
@@ -842,54 +847,6 @@ footer .social-links {
     gap: 15px;
     align-items: flex-start;
 }
-.project-secondary-iframe {
-     height: 250px;
-}
-}
-
-/* ============================================= */
-/* == Side-by-Side Vimeo Embed Styles == */
-/* ============================================= */
-
-.vimeo-item-wrapper {
-  box-sizing: border-box;
-  flex: 1;
-  min-width: 280px;
-  position: relative;
-  height: 0;
-  padding-bottom: 44.48%;
-  overflow: hidden;
-  background-color: #111;
-}
-
-.vimeo-item-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.vimeo-row-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: flex-start;
-}
-
-@media (max-width: 768px) {
-  .secondary-image-item,
-  .vimeo-item-wrapper {
-      flex-basis: 100%;
-      min-width: 100%;
-  }
-  .secondary-images-container,
-  .vimeo-row-container {
-      gap: 15px;
-  }
-  .media-item { margin-bottom: 15px; }
-  .project-media { margin-top: 30px; margin-bottom: 30px; }
 }
 
 /* ============================================= */
@@ -947,4 +904,24 @@ footer .social-links {
 
 #lightbox-close:hover {
     color: #aaaaaa;
+}
+
+/* ============================================= */
+/* == Aspect Ratio Helpers == */
+/* ============================================= */
+.aspect-ratio-16-9 {
+  position: relative; /* Establishes a positioning context for the iframe */
+  height: 0;
+  padding-bottom: 56.25%; /* (9 / 16) * 100% = 16:9 aspect ratio */
+  overflow: hidden; /* Prevents content spillover if any */
+  background-color: #111; /* Optional: background during load */
+}
+
+.aspect-ratio-16-9 > iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0; /* Remove default iframe border */
 }
