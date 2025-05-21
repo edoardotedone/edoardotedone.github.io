@@ -127,7 +127,7 @@ header nav ul {
   margin: 0;
   display: flex;
   gap: 20px;
-  align-items: baseline;
+  align-items: baseline;  
 }
 
 header nav ul li { 
@@ -143,6 +143,7 @@ header nav ul li a.nav-link-animated {
   overflow: hidden;
   line-height: 2;  
   padding: 0;
+  color: #808080;
 }
 
 header nav ul li a.nav-link-animated span {
@@ -352,9 +353,8 @@ section {
 .project-text span {
   font-size: 1em;
   font-weight: normal;
-  color: #ffffff;
-  text-align: right;
-  opacity: 0.25;
+  color: #808080;
+  text-align: right;  
 }
 
 /* ============================================= */
@@ -446,12 +446,7 @@ footer {
      display: flex;
      justify-content: space-between;
      align-items: center;
- }
-
- footer .social-links {
-    margin-top: 0;
-    display: flex;
-    gap: 30px;
+     
  }
 
  .footer-content a {
@@ -465,10 +460,17 @@ footer {
   opacity: 0.5;
 }
 
-footer .social-links {
-  margin-top: 0;
-  display: flex;
-}
+ footer .social-links {
+    margin-top: 0;
+    display: flex;
+    gap: 20px;    
+ }
+
+@media (max-width: 768px) {
+ .footer-content {
+  font-size: 0.9em;
+  }
+  }
 
 /* ============================================= */
 /* == Media Queries (Responsive Design) == */
@@ -522,14 +524,14 @@ footer .social-links {
 
  .footer-content {
   flex-direction: row;
-  gap: 30px;
+  gap: 10px;
   align-items: center;  
 }
 
 footer .social-links {
-  width: 100%;
-  justify-content: right;
-  gap: 30px;  
+  width: auto;  
+  gap: 10px;
+  
 }
 }
 
@@ -689,7 +691,7 @@ footer .social-links {
   margin-right: auto;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: baseline;
 }
 
 .pagination-link {
@@ -706,7 +708,7 @@ footer .social-links {
 
 .pagination-link h2 {
   font-size: 2em;
-  margin: 0 0 15px 0;
+  margin: 0 0 5px 0;
   font-weight: bold;
 }
 
@@ -882,7 +884,7 @@ footer .social-links {
   height: auto;
   object-fit: cover;
   max-width: 100%;
-  background-color: #333;
+  background-color: #333333;
   cursor: zoom-in;
   transition: opacity 0.2s ease-in-out;
 }
