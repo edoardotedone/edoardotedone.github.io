@@ -41,7 +41,8 @@ a { color: #ffffff; text-decoration: none; font-size: 1em; }
   }
 
   #work .h2-wrapper .reveal-content {
-    line-height: 1; /* Or your preferred value */   
+    line-height: 1; /* Or your preferred value */ 
+    font-size: 1.3em;  
   }
 
   .project-title-wrapper h1 {
@@ -276,8 +277,15 @@ section {
 .project-unit {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
 }
+
+@media (max-width: 768px) {
+
+  .project-unit {
+    gap: 3px;
+  } 
+  }
 
 .project-item {
   position: relative;
@@ -337,6 +345,7 @@ section {
   justify-content: space-between;
   align-items: baseline;
   color: #ffffff;
+  margin: 0;
 }
 
 .value a:hover {
@@ -354,8 +363,21 @@ section {
   font-size: 1em;
   font-weight: normal;
   color: #808080;
-  text-align: right;  
+  text-align: right; 
+  margin: 0; 
 }
+
+@media (max-width: 768px) {
+
+  .project-text h3 {
+    font-size: 0.8em;
+  }
+
+  .project-text span {
+    font-size: 0.8em;
+  }
+  }
+
 
 /* ============================================= */
 /* == About Section == */
@@ -491,7 +513,7 @@ footer {
   
   header nav ul {
       justify-content: center;
-      gap: 15px;  
+      gap: 10px;  
       font-size: 0.9em;    
    }
 
