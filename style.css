@@ -285,6 +285,11 @@ section {
   .project-unit {
     gap: 3px;
   } 
+
+  .project-grid {
+    gap: 10px;
+  } 
+
   }
 
 .project-item {
@@ -1019,15 +1024,6 @@ footer .social-links {
   background-color: #111; /* Optional: background during load */
 }
 
-.aspect-ratio-16-9 > iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0; /* Remove default iframe border */
-}
-
 .aspect-ratio-9-16 {
   position: relative;
   height: 0;
@@ -1036,9 +1032,18 @@ footer .social-links {
   background-color: #111; /* Optional */
 }
 
+.aspect-ratio-1798-1080 { /* Or a more semantic name if you prefer */
+  position: relative;
+  height: 0;
+  padding-bottom: 60.06674%; /* (1080 / 1798) * 100% */
+  overflow: hidden;
+  background-color: #111; /* Optional */
+}
+
 /* This existing rule can style iframes inside ANY aspect ratio container */
 .aspect-ratio-16-9 > iframe,
-.aspect-ratio-9-16 > iframe { /* Added the new class here */
+.aspect-ratio-9-16 > iframe,
+.aspect-ratio-1798-1080 > iframe {
   position: absolute;
   top: 0;
   left: 0;
