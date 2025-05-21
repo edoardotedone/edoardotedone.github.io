@@ -283,11 +283,11 @@ section {
 @media (max-width: 768px) {
 
   .project-unit {
-    gap: 3px;
+    gap: 5px;
   } 
 
   .project-grid {
-    gap: 10px;
+    gap: 15px;
   } 
 
   }
